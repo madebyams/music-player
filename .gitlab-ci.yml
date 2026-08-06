@@ -1,0 +1,64 @@
+stages:
+  - build
+  - upload
+  - release
+
+variables:
+  CONAN_HOME: "${CI_PROJECT_DIR}/.conan2"
+  BINARY_NAME: "music_player"
+  PACKAGE_REGISTRY_URL: "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/music-player/${CI_COMMIT_TAG}"
+
+default:
+  tags:
+    - linux_amd64
+  image: ubuntu:24.04
+
+build:
+  stage: build
+  before_script:
+    - apt-get update
+    - apt-get install -y --no-install-recommends build-essential python3-pip ca-certificates
+    - pip install --break-system-packages "conan>=2,<3" "cmake>=3.30"
+    - conan profile detect --force
+  script:
+    - conan install . --build=missing
+    - cmake --preset conan-release
+    - cmake --build --preset conan-release
+  cache:
+    key: conan-${CI_JOB_IMAGE}-${CI_COMMIT_REF_SLUG}
+    paths:
+      - .conan2/p
+  artifacts:
+    paths:
+      - build/Release/main/${BINARY_NAME}
+    expire_in: 1 week
+
+upload:
+  stage: upload
+  needs:
+    - build
+  rules:
+    - if: '$CI_COMMIT_TAG'
+  script:
+    - >
+      curl --fail --header "JOB-TOKEN: ${CI_JOB_TOKEN}"
+      --upload-file "build/Release/main/${BINARY_NAME}"
+      "${PACKAGE_REGISTRY_URL}/${BINARY_NAME}-${CI_COMMIT_TAG}-amd64"
+
+release:
+  stage: release
+  image: registry.gitlab.com/gitlab-org/release-cli:latest
+  needs:
+    - upload
+  rules:
+    - if: '$CI_COMMIT_TAG'
+  script:
+    - echo "Creating release ${CI_COMMIT_TAG}"
+  release:
+    tag_name: "${CI_COMMIT_TAG}"
+    name: "Release ${CI_COMMIT_TAG}"
+    description: "music_player binary (amd64) for ${CI_COMMIT_TAG}"
+    assets:
+      links:
+        - name: "${BINARY_NAME} (amd64)"
+          url: "${PACKAGE_REGISTRY_URL}/${BINARY_NAME}-${CI_COMMIT_TAG}-amd64"
