@@ -1,8 +1,0 @@
-
-	file_reader.cc
-)
-
-target_include_directories(file_reader
-PUBLIC
-	"include"
-)
