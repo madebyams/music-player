@@ -47,78 +47,53 @@ ams@MacBook-Pro-von-Amsakan music-player % cmake --build --preset conan-release
 -- Using Conan toolchain: /Users/ams/dev/music-player/build/Release/generators/conan_toolchain.cmake
 -- Conan toolchain: Defining architecture flag: -m64
 -- Conan toolchain: Defining libcxx as C++ flags: -stdlib=libc++
-ams@MacBook-Pro-von-Amsakan music-player % cmake --build --preset c
-onan-release
+ams@MacBook-Pro-von-Amsakan music-player % cmake --build --preset conan-release
 [ 25%] Built target file_reader
-[ 37%] Building CXX object modules/arg_parser/CMakeFiles/arg_parser
-.dir/arg_parser.cc.o
+[ 37%] Building CXX object modules/arg_parser/CMakeFiles/arg_parser.dir/arg_parser.cc.o
 [ 62%] Built target audio_engine
-/Users/ams/dev/music-player/modules/arg_parser/arg_parser.cc:8:6: e
-rror: no matching member function for call to 'scan'              
+/Users/ams/dev/music-player/modules/arg_parser/arg_parser.cc:8:6: error: no matching member function for call to 'scan'              
     .scan<'i', std::string>();
     ~^~~~~~~~~~~~~~~~~~~~~~
-/Users/ams/.conan2/p/argpa1fafd94012278/p/include/argparse/argparse
-.hpp:822:8: note: candidate template ignored: requirement 'std::is_
-arithmetic_v<std::string>' was not satisfied [with Shape = 'i', T =
- std::string]
-  auto scan() -> std::enable_if_t<std::is_arithmetic_v<T>, Argument
- &> {
+/Users/ams/.conan2/p/argpa1fafd94012278/p/include/argparse/argparse.hpp:822:8: note: candidate template ignored: requirement 'std::is_arithmetic_v<std::string>' was not satisfied [with Shape = 'i', T = std::string]
+  auto scan() -> std::enable_if_t<std::is_arithmetic_v<T>, Argument &> {
        ^
 /Users/ams/dev/music-player/modules/arg_parser/arg_parser.cc:19:1: 
 error: unknown type name 'T'                                      
 T arg_parser::get_arg(std::string name) {
 ^
-/Users/ams/dev/music-player/modules/arg_parser/arg_parser.cc:20:21:
- error: use of undeclared identifier 'T'
+/Users/ams/dev/music-player/modules/arg_parser/arg_parser.cc:20:21: error: use of undeclared identifier 'T'
   return parser.get<T>(name);
                     ^
 3 errors generated.
-gmake[2]: *** [modules/arg_parser/CMakeFiles/arg_parser.dir/build.m
-ake:79: modules/arg_parser/CMakeFiles/arg_parser.dir/arg_parser.cc.
-o] Error 1
-gmake[1]: *** [CMakeFiles/Makefile2:228: modules/arg_parser/CMakeFi
-les/arg_parser.dir/all] Error 2
+gmake[2]: *** [modules/arg_parser/CMakeFiles/arg_parser.dir/build.make:79: modules/arg_parser/CMakeFiles/arg_parser.dir/arg_parser.cc.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:228: modules/arg_parser/CMakeFiles/arg_parser.dir/all] Error 2
 gmake: *** [Makefile:91: all] Error 2
-ams@MacBook-Pro-von-Amsakan music-player % cmake --build --preset c
-onan-release
+ams@MacBook-Pro-von-Amsakan music-player % cmake --build --preset conan-release
 [ 25%] Built target file_reader
-[ 37%] Building CXX object modules/arg_parser/CMakeFiles/arg_parser
-.dir/arg_parser.cc.o
+[ 37%] Building CXX object modules/arg_parser/CMakeFiles/arg_parser.dir/arg_parser.cc.o
 [ 62%] Built target audio_engine
 /Users/ams/dev/music-player/modules/arg_parser/arg_parser.cc:18:1: 
-ams@MacBook-Pro-von-Amsakan music-player % cmake --build --preset c
-onan-release
+ams@MacBook-Pro-von-Amsakan music-player % cmake --build --preset conan-release
 [ 25%] Built target file_reader
 [ 50%] Built target arg_parser
 [ 75%] Built target audio_engine
 [ 87%] Linking CXX executable music_player
 ld: Undefined symbols:
-  std::__1::basic_string<char, std::__1::char_traits<char>, std::__
-1::allocator<char>> arg_parser::get_arg<std::__1::basic_string<char
-, std::__1::char_traits<char>, std::__1::allocator<char>>>(std::__1
-::basic_string<char, std::__1::char_traits<char>, std::__1::allocat
-or<char>>), referenced from:
+  std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> arg_parser::get_arg<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>>(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>), referenced from:
       _main in main.cc.o
-clang: error: linker command failed with exit code 1 (use -v to see
- invocation)  
-gmake[2]: *** [main/CMakeFiles/music_player.dir/build.make:106: mai
-n/music_player] Error 1
-gmake[1]: *** [CMakeFiles/Makefile2:196: main/CMakeFiles/music_play
-er.dir/all] Error 2
+clang: error: linker command failed with exit code 1 (use -v to see invocation)  
+gmake[2]: *** [main/CMakeFiles/music_player.dir/build.make:106: main/music_player] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:196: main/CMakeFiles/music_player.dir/all] Error 2
 gmake: *** [Makefile:91: all] Error 2
-ams@MacBook-Pro-von-Amsakan music-player % cmake --preset conan-rel
-ease                                                       
--- Using Conan toolchain: /Users/ams/dev/music-player/build/Release
-/generators/conan_toolchain.cmake
+ams@MacBook-Pro-von-Amsakan music-player % cmake --preset conan-release                                                       
+-- Using Conan toolchain: /Users/ams/dev/music-player/build/Release/generators/conan_toolchain.cmake
 -- Conan toolchain: Defining architecture flag: -m64
 -- Conan toolchain: Defining libcxx as C++ flags: -stdlib=libc++
 -- Conan toolchain: C++ Standard 17 with extensions ON
 -- The CXX compiler identification is AppleClang 15.0.0.15000100
 -- Detecting CXX compiler ABI info
 -- Detecting CXX compiler ABI info - done
--- Check for working CXX compiler: /Applications/Xcode.app/Contents
-/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ - skippe
-d
+-- Check for working CXX compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ - skipped
 -- Detecting CXX compile features
 -- Detecting CXX compile features - done
 -- Conan: Component target declared 'spdlog::spdlog'
@@ -128,95 +103,730 @@ d
 -- Conan: Target declared 'argparse::argparse'
 -- Configuring done (1.0s)
 -- Generating done (0.0s)
--- Build files have been written to: /Users/ams/dev/music-player/bu
-ild/Release
-ams@MacBook-Pro-von-Amsakan music-player % cmake --build --preset c
-onan-release                                       
-[ 12%] Building CXX object modules/arg_parser/CMakeFiles/arg_parser
-.dir/arg_parser.cc.o
-[ 25%] Building CXX object modules/file_reader/CMakeFiles/file_read
-er.dir/file_reader.cc.o
+-- Build files have been written to: /Users/ams/dev/music-player/build/Release
+ams@MacBook-Pro-von-Amsakan music-player % cmake --build --preset conan-release                                       
+[ 12%] Building CXX object modules/arg_parser/CMakeFiles/arg_parser.dir/arg_parser.cc.o
+[ 25%] Building CXX object modules/file_reader/CMakeFiles/file_reader.dir/file_reader.cc.o
 [ 37%] Linking CXX static library libfile_reader.a
 [ 37%] Built target file_reader
-[ 50%] Building CXX object modules/audio_engine/CMakeFiles/audio_en
-gine.dir/audio_engine.cc.o
+[ 50%] Building CXX object modules/audio_engine/CMakeFiles/audio_engine.dir/audio_engine.cc.o
 [ 62%] Linking CXX static library libarg_parser.a
 [ 62%] Built target arg_parser
 [ 75%] Linking CXX static library libaudio_engine.a
 [ 75%] Built target audio_engine
-[ 87%] Building CXX object main/CMakeFiles/music_player.dir/main.cc
-ams@MacBook-Pro-von-Amsakan music-player % cmake --build --preset c
-onan-release
-[ 25%] Building CXX object modules/arg_parser/CMakeFiles/arg_parser
-.dir/arg_parser.cc.o
+[ 87%] Building CXX object main/CMakeFiles/music_player.dir/main.ccams@MacBook-Pro-von-Amsakan music-player % cmake --build --preset conan-release
+[ 25%] Building CXX object modules/arg_parser/CMakeFiles/arg_parser.dir/arg_parser.cc.o
 [ 37%] Built target file_reader
-[ 50%] Building CXX object modules/audio_engine/CMakeFiles/audio_en
-gine.dir/audio_engine.cc.o
+[ 50%] Building CXX object modules/audio_engine/CMakeFiles/audio_engine.dir/audio_engine.cc.o
 [ 62%] Linking CXX static library libarg_parser.a
 [ 62%] Built target arg_parser
 [ 75%] Linking CXX static library libaudio_engine.a
 [ 75%] Built target audio_engine
-[ 87%] Building CXX object main/CMakeFiles/music_player.dir/main.cc
-.o     
+[ 87%] Building CXX object main/CMakeFiles/music_player.dir/main.cc.o     
 [100%] Linking CXX executable music_player
 [100%] Built target music_player
-ams@MacBook-Pro-von-Amsakan music-player % cmake --build --preset c
-onan-release
+ams@MacBook-Pro-von-Amsakan music-player % cmake --build --preset conan-release
 [ 25%] Built target file_reader
 [ 50%] Built target arg_parser
-[ 62%] Building CXX object modules/audio_engine/CMakeFiles/audio_en
-gine.dir/audio_engine.cc.o
+[ 62%] Building CXX object modules/audio_engine/CMakeFiles/audio_engine.dir/audio_engine.cc.o
 [ 75%] Linking CXX static library libaudio_engine.a
 [ 75%] Built target audio_engine
 [ 87%] Linking CXX executable music_player
 [100%] Built target music_player
-ams@MacBook-Pro-von-Amsakan music-player % ./build/Release/main/mus
-ic_player ~/Downloads/stfu.wav --sample-rate "48000"
-[2026-08-07 10:10:10.806] [info] Playing /Users/ams/Downloads/stfu.
-wav                            
+ams@MacBook-Pro-von-Amsakan music-player % ./build/Release/main/music_player ~/Downloads/stfu.wav --sample-rate "48000"
+[2026-08-07 10:10:10.806] [info] Playing /Users/ams/Downloads/stfu.wav                            
 ^C
-ams@MacBook-Pro-von-Amsakan music-player % ./build/Release/main/mus
-ic_player ~/Downloads/stfu.wav --sample-rate 48000            
-[2026-08-07 10:10:27.013] [info] Playing /Users/ams/Downloads/stfu.
-wav                            
+ams@MacBook-Pro-von-Amsakan music-player % ./build/Release/main/music_player ~/Downloads/stfu.wav --sample-rate 48000            
+[2026-08-07 10:10:27.013] [info] Playing /Users/ams/Downloads/stfu.wav                            
 ^C
-ams@MacBook-Pro-von-Amsakan music-player % ./build/Release/main/mus
-ic_player ~/Downloads/stfu.wav --sample-rate 48000 --channels 2
-[2026-08-07 10:10:36.956] [info] Playing /Users/ams/Downloads/stfu.
-wav                            
+ams@MacBook-Pro-von-Amsakan music-player % ./build/Release/main/music_player ~/Downloads/stfu.wav --sample-rate 48000 --channels 2
+[2026-08-07 10:10:36.956] [info] Playing /Users/ams/Downloads/stfu.wav                            
 ^C
-ams@MacBook-Pro-von-Amsakan music-player % ./build/Release/main/mus
-ic_player ~/Downloads/stfu.wav --sample-rate 48000 --channels 1
-[2026-08-07 10:10:42.704] [info] Playing /Users/ams/Downloads/stfu.
-wav                            
+ams@MacBook-Pro-von-Amsakan music-player % ./build/Release/main/music_player ~/Downloads/stfu.wav --sample-rate 48000 --channels 1
+[2026-08-07 10:10:42.704] [info] Playing /Users/ams/Downloads/stfu.wav                            
 ^C
-ams@MacBook-Pro-von-Amsakan music-player % ./build/Release/main/mus
-ic_player ~/Downloads/stfu.wav --sample-rate 41000 --channels 1
-[2026-08-07 10:10:59.618] [info] Playing /Users/ams/Downloads/stfu.
-wav                            
-^C
-ams@MacBook-Pro-von-Amsakan music-player % ./build/Release/main/mus
-ic_player ~/Downloads/stfu.wav --sample-rate 50000 --channels 1
-[2026-08-07 10:11:13.958] [info] Playing /Users/ams/Downloads/stfu.
-wav                            
-^C
-ams@MacBook-Pro-von-Amsakan music-player % ./build/Release/main/mus
-ic_player ~/Downloads/stfu.wav --sample-rate 100000 --channels 1 
-[2026-08-07 10:11:31.236] [info] Playing /Users/ams/Downloads/stfu.
-wav                            
-^C
-ams@MacBook-Pro-von-Amsakan music-player % git add .
-ams@MacBook-Pro-von-Amsakan music-player % git commit -m "Added cha
-nnels option"
-[main 0adc76e] Added channels option
- 5 files changed, 18 insertions(+), 8 deletions(-)
-ams@MacBook-Pro-von-Amsakan music-player % git push
-Enumerating objects: 23, done.
-Counting objects: 100% (23/23), done.
-Delta compression using up to 4 threads
-Compressing objects: 100% (11/11), done.
-Writing objects: 100% (12/12), 1.28 KiB | 1.28 MiB/s, done.
-Total 12 (delta 6), reused 0 (delta 0), pack-reused 0
-To https://git.amsakan.de/anotherSimpleCoder/music-player.git
-   df15519..0adc76e  main -> main
-ams@MacBook-Pro-von-Amsakan music-player % #
+ams@MacBook-Pro-von-Amsakan music-player % ./build/Release/main/music_player ~/Downloads/stfu.wav --sample-rate 41000 --channels 1
+[2026-08-07 10:10:59.618] [info] Playing /Users/ams/Downloads/stfu.wav                            
+ams@MacBook-Pro-von-Amsakan music-player % ls
+CHANGELOG.md            build
+CMakeLists.txt          conanfile.txt
+CMakeUserPresets.json   main
+LICENSE                 modules
+README.md               sine.wav
+ams@MacBook-Pro-von-Amsakan music-player % conan install . --build=missing
+
+======== Input profiles ========
+Profile host:
+[settings]
+arch=x86_64
+build_type=Release
+compiler=apple-clang
+compiler.cppstd=gnu17
+compiler.libcxx=libc++
+compiler.version=15
+os=Macos
+
+Profile build:
+[settings]
+arch=x86_64
+build_type=Release
+compiler=apple-clang
+compiler.cppstd=gnu17
+compiler.libcxx=libc++
+compiler.version=15
+os=Macos
+
+
+======== Computing dependency graph ========
+Graph root
+    conanfile.txt: /Users/ams/dev/music-player/conanfile.txt
+Requirements
+    argparse/3.2#e3bf8d3aa1eb0d23c48ec61b60e0a029 - Cache
+    bzip2/1.0.8#c470882369c2d95c5c77e970c0c7e321 - Cache
+    cpython/3.12.7#c6f89b3dd5aeee00561f564c88cdc411 - Cache
+    drwav/0.13.14#b5888a28ca37a2ad83182b66a568dd8c - Cache
+    expat/2.7.3#f529802a90f0758a01f498a18f8c657b - Cache
+    fmt/12.1.0#50abab23274d56bb8f42c94b3b9a40c7 - Cache
+    gdbm/1.23#e33e95cba20c006ae47466e2770cd984 - Cache
+    libffi/3.4.4#33feb967b22d92ea0becce63bf9d5490 - Cache
+    libxcrypt/4.4.36#4b4e8f20794f1997dd59eeed0b7cdcfb - Cache
+    miniaudio/0.11.22#dbf82d76a57d0555140d1604c30024d9 - Cache
+    mpdecimal/2.5.0#4e67f881cf85c2df1095f7abd756b12f - Cache
+    ncurses/6.4#21cb2fcdbe68c6d9509458b23d711919 - Cache
+    openssl/3.6.0#89e8af1d4a21afcac0557079d23d8890 - Cache
+    spdlog/1.17.0#bcbaaf7147bda6ad24ffbd1ac3d7142c - Cache
+    sqlite3/3.45.2#60f2d3278e7bc12c8ef02ac75119c137 - Cache
+    tcl/8.6.10#bb67af0f98ba1c42f524578e0d12daff - Cache
+    tk/8.6.10#cf99d5ded89fdc5ac329828497399acc - Cache
+    xz_utils/5.4.5#a2ce5c2f137ef2b2770a68a2a697ba69 - Cache
+    zlib/1.3.1#cac0f6daea041b0ccf42934163defb20 - Cache
+Build requirements
+    autoconf/2.71#51077f068e61700d65bb05541ea1e4b0 - Cache
+    automake/1.16.5#b91b7c384c3deaa9d535be02da14d04f - Cache
+    bison/3.8.2#c3490cbe0078b6fd3eb4cf5ed64144dc - Cache
+    flex/2.6.4#efa781fc5088b47c895bd4eef6911f2e - Cache
+    gnu-config/cci.20210814#466e9d4d7779e1c142443f7ea44b4284 - Cache
+    libtool/2.4.7#14e7739cc128bc1623d2ed318008e47e - Cache
+    m4/1.4.19#b38ced39a01e31fef5435bc634461fd2 - Cache
+    meson/1.10.0#60786758ea978964c24525de19603cf4 - Cache
+    ninja/1.13.2#c8c5dc2a52ed6e4e42a66d75b4717ceb - Cache
+    pkgconf/2.0.3#c7ba7fd1d7d22534ee070ae60ed79604 - Cache
+    pkgconf/2.1.0#21f96520faf7660b99f872e956d2ac13 - Cache
+Resolved version ranges
+    expat/[>=2.6.2 <3]: expat/2.7.3
+    meson/[>=1.2.2 <2]: meson/1.10.0
+    ninja/[>=1.10.2 <2]: ninja/1.13.2
+    openssl/[>=1.1 <4]: openssl/3.6.0
+    zlib/[>=1.2.11 <2]: zlib/1.3.1
+
+======== Computing necessary packages ========
+Connecting to remote 'conancenter' anonymously
+Requirements
+    argparse/3.2#e3bf8d3aa1eb0d23c48ec61b60e0a029:da39a3ee5e6b4b0d3255bfef95601890afd80709#beb5c17af6867943c09cacf1b37bb049 - Cache
+    bzip2/1.0.8#c470882369c2d95c5c77e970c0c7e321:e7988bbc42945ade4ac9e0a9c78b773ecd1e91e6#564385435f9843d4ef6db139942efbe3 - Cache
+    cpython/3.12.7#c6f89b3dd5aeee00561f564c88cdc411:d35892b31bd47095895d81865831acd0ca16689d#05edaaa33c3c412489b3e7d068cb5472 - Cache
+    drwav/0.13.14#b5888a28ca37a2ad83182b66a568dd8c:f3f0700263f7443ae3dc9fc9512dfe1a58dcff5e#f7769b955fe26341467e43f6fe4b91ad - Cache
+    expat/2.7.3#f529802a90f0758a01f498a18f8c657b:a5b784a928bf19b35fcc8d40ea3848ea46b6336f#f797cdb9224d4447e7dcd5681016581c - Cache
+    fmt/12.1.0#50abab23274d56bb8f42c94b3b9a40c7:440a2a86f952b007697d309c7cdae69ec0e267df#736319e148219b41b385b37997229f28 - Cache
+    gdbm/1.23#e33e95cba20c006ae47466e2770cd984:5aa923f533f74a653feb6f3497c10bec40f4d80b#90daed6d8336f9d305523a65214db75f - Cache
+    libffi/3.4.4#33feb967b22d92ea0becce63bf9d5490:be7ccd6109b8a8f9da81fd00ee143a1f5bbd5bbf#9578bf2b84838985b438be2a0d067fc9 - Cache
+    miniaudio/0.11.22#dbf82d76a57d0555140d1604c30024d9:da39a3ee5e6b4b0d3255bfef95601890afd80709#9496f37d7d320754c8e63248be432e53 - Cache
+    mpdecimal/2.5.0#4e67f881cf85c2df1095f7abd756b12f:f8de672b94e27bb37ac9e628bd93ecc0e2f91b99#985368bd39fd6a59f1a341476daebfb2 - Cache
+    ncurses/6.4#21cb2fcdbe68c6d9509458b23d711919:6fd94ff778ad87d32e065fe15bf2a01b3dfd7cd1#76f4bb4f4ee6a0b24abb7630dbcb2926 - Cache
+    openssl/3.6.0#89e8af1d4a21afcac0557079d23d8890:b069f68962421440a4453f103c06d97e7a6a3ab4#13338463ce9e90a03f03ec8d279cb23d - Cache
+    spdlog/1.17.0#bcbaaf7147bda6ad24ffbd1ac3d7142c:18d0827ccd715ac99112948d9e69a45260d75cab#4494639ac07835527563269ee729c727 - Cache
+    sqlite3/3.45.2#60f2d3278e7bc12c8ef02ac75119c137:05b1f65ebd7aa8c1c131282082d84a508d2d4eb4#6e1c923e3ea7ec7d1983ce7241a67a0f - Cache
+    tcl/8.6.10#bb67af0f98ba1c42f524578e0d12daff:5ca55a159ed1a6ad669acd941f740162fb8c55e9#c6b92581ef7bebc16683912c7088465c - Cache
+    tk/8.6.10#cf99d5ded89fdc5ac329828497399acc:530e7d6fb0c965372dbd9dff26b36c1241096ac9#3da57d3ac64c0e8f4664913cb87a119d - Cache
+    xz_utils/5.4.5#a2ce5c2f137ef2b2770a68a2a697ba69:be7ccd6109b8a8f9da81fd00ee143a1f5bbd5bbf#1d2209c9ba22af10ce4aa1ada3d7a3f2 - Cache
+    zlib/1.3.1#cac0f6daea041b0ccf42934163defb20:be7ccd6109b8a8f9da81fd00ee143a1f5bbd5bbf#2f117cb5affbe8b06c2f56cbc76f53b3 - Cache
+Build requirements
+Skipped binaries
+    libxcrypt/4.4.36, autoconf/2.71, automake/1.16.5, bison/3.8.2, flex/2.6.4, gnu-config/cci.20210814, libtool/2.4.7, m4/1.4.19, meson/1.10.0, ninja/1.13.2, pkgconf/2.0.3, pkgconf/2.1.0
+
+======== Installing packages ========
+argparse/3.2: Already installed! (1 of 18)
+bzip2/1.0.8: Already installed! (2 of 18)
+drwav/0.13.14: Already installed! (3 of 18)
+expat/2.7.3: Already installed! (4 of 18)
+fmt/12.1.0: Already installed! (5 of 18)
+libffi/3.4.4: Already installed! (6 of 18)
+miniaudio/0.11.22: Already installed! (7 of 18)
+mpdecimal/2.5.0: Already installed! (8 of 18)
+sqlite3/3.45.2: Already installed! (9 of 18)
+xz_utils/5.4.5: Already installed! (10 of 18)
+zlib/1.3.1: Already installed! (11 of 18)
+gdbm/1.23: Already installed! (12 of 18)
+gdbm/1.23: Appending PATH environment variable: /Users/ams/.conan2/p/b/gdbmb05af03ff8826/p/bin
+ncurses/6.4: Already installed! (13 of 18)
+openssl/3.6.0: Already installed! (14 of 18)
+spdlog/1.17.0: Already installed! (15 of 18)
+tcl/8.6.10: Already installed! (16 of 18)
+tk/8.6.10: Already installed! (17 of 18)
+cpython/3.12.7: Already installed! (18 of 18)
+cpython/3.12.7: Appending PATH environment variable: /Users/ams/.conan2/p/b/cpythe837516fce241/p/bin
+cpython/3.12.7: Appending PYTHON environment variable: /Users/ams/.conan2/p/b/cpythe837516fce241/p/bin/python3.12
+cpython/3.12.7: Setting PYTHON_ROOT environment variable: /Users/ams/.conan2/p/b/cpythe837516fce241/p
+WARN: deprecated: Usage of deprecated Conan 1.X features that will ams@MacBook-Pro-von-Amsakan music-player % conan install . --build=missing
+
+======== Input profiles ========
+Profile host:
+[settings]
+arch=x86_64
+build_type=Release
+compiler=apple-clang
+compiler.cppstd=gnu17
+compiler.libcxx=libc++
+compiler.version=15
+os=Macos
+
+Profile build:
+[settings]
+arch=x86_64
+build_type=Release
+compiler=apple-clang
+compiler.cppstd=gnu17
+compiler.libcxx=libc++
+compiler.version=15
+os=Macos
+
+
+======== Computing dependency graph ========
+Graph root
+    conanfile.txt: /Users/ams/dev/music-player/conanfile.txt
+Requirements
+    argparse/3.2#e3bf8d3aa1eb0d23c48ec61b60e0a029 - Cache
+    bzip2/1.0.8#c470882369c2d95c5c77e970c0c7e321 - Cache
+    cpython/3.12.7#c6f89b3dd5aeee00561f564c88cdc411 - Cache
+    drwav/0.13.14#b5888a28ca37a2ad83182b66a568dd8c - Cache
+    expat/2.7.3#f529802a90f0758a01f498a18f8c657b - Cache
+    fmt/12.1.0#50abab23274d56bb8f42c94b3b9a40c7 - Cache
+    gdbm/1.23#e33e95cba20c006ae47466e2770cd984 - Cache
+    libffi/3.4.4#33feb967b22d92ea0becce63bf9d5490 - Cache
+    libxcrypt/4.4.36#4b4e8f20794f1997dd59eeed0b7cdcfb - Cache
+    miniaudio/0.11.22#dbf82d76a57d0555140d1604c30024d9 - Cache
+    mpdecimal/2.5.0#4e67f881cf85c2df1095f7abd756b12f - Cache
+    ncurses/6.4#21cb2fcdbe68c6d9509458b23d711919 - Cache
+    openssl/3.6.0#89e8af1d4a21afcac0557079d23d8890 - Cache
+    spdlog/1.17.0#bcbaaf7147bda6ad24ffbd1ac3d7142c - Cache
+    sqlite3/3.45.2#60f2d3278e7bc12c8ef02ac75119c137 - Cache
+    tcl/8.6.10#bb67af0f98ba1c42f524578e0d12daff - Cache
+    tk/8.6.10#cf99d5ded89fdc5ac329828497399acc - Cache
+    xz_utils/5.4.5#a2ce5c2f137ef2b2770a68a2a697ba69 - Cache
+    zlib/1.3.1#cac0f6daea041b0ccf42934163defb20 - Cache
+Build requirements
+    autoconf/2.71#51077f068e61700d65bb05541ea1e4b0 - Cache
+    automake/1.16.5#b91b7c384c3deaa9d535be02da14d04f - Cache
+    bison/3.8.2#c3490cbe0078b6fd3eb4cf5ed64144dc - Cache
+    flex/2.6.4#efa781fc5088b47c895bd4eef6911f2e - Cache
+    gnu-config/cci.20210814#466e9d4d7779e1c142443f7ea44b4284 - Cache
+    libtool/2.4.7#14e7739cc128bc1623d2ed318008e47e - Cache
+    m4/1.4.19#b38ced39a01e31fef5435bc634461fd2 - Cache
+    meson/1.10.0#60786758ea978964c24525de19603cf4 - Cache
+    ninja/1.13.2#c8c5dc2a52ed6e4e42a66d75b4717ceb - Cache
+    pkgconf/2.0.3#c7ba7fd1d7d22534ee070ae60ed79604 - Cache
+    pkgconf/2.1.0#21f96520faf7660b99f872e956d2ac13 - Cache
+Resolved version ranges
+    expat/[>=2.6.2 <3]: expat/2.7.3
+    meson/[>=1.2.2 <2]: meson/1.10.0
+    ninja/[>=1.10.2 <2]: ninja/1.13.2
+    openssl/[>=1.1 <4]: openssl/3.6.0
+    zlib/[>=1.2.11 <2]: zlib/1.3.1
+
+======== Computing necessary packages ========
+Connecting to remote 'conancenter' anonymously
+Requirements
+    argparse/3.2#e3bf8d3aa1eb0d23c48ec61b60e0a029:da39a3ee5e6b4b0d3255bfef95601890afd80709#beb5c17af6867943c09cacf1b37bb049 - Cache
+    bzip2/1.0.8#c470882369c2d95c5c77e970c0c7e321:e7988bbc42945ade4ac9e0a9c78b773ecd1e91e6#564385435f9843d4ef6db139942efbe3 - Cache
+    cpython/3.12.7#c6f89b3dd5aeee00561f564c88cdc411:d35892b31bd47095895d81865831acd0ca16689d#05edaaa33c3c412489b3e7d068cb5472 - Cache
+    drwav/0.13.14#b5888a28ca37a2ad83182b66a568dd8c:f3f0700263f7443ae3dc9fc9512dfe1a58dcff5e#f7769b955fe26341467e43f6fe4b91ad - Cache
+    expat/2.7.3#f529802a90f0758a01f498a18f8c657b:a5b784a928bf19b35fcc8d40ea3848ea46b6336f#f797cdb9224d4447e7dcd5681016581c - Cache
+    fmt/12.1.0#50abab23274d56bb8f42c94b3b9a40c7:440a2a86f952b007697d309c7cdae69ec0e267df#736319e148219b41b385b37997229f28 - Cache
+    gdbm/1.23#e33e95cba20c006ae47466e2770cd984:5aa923f533f74a653feb6f3497c10bec40f4d80b#90daed6d8336f9d305523a65214db75f - Cache
+    libffi/3.4.4#33feb967b22d92ea0becce63bf9d5490:be7ccd6109b8a8f9da81fd00ee143a1f5bbd5bbf#9578bf2b84838985b438be2a0d067fc9 - Cache
+    miniaudio/0.11.22#dbf82d76a57d0555140d1604c30024d9:da39a3ee5e6b4b0d3255bfef95601890afd80709#9496f37d7d320754c8e63248be432e53 - Cache
+    mpdecimal/2.5.0#4e67f881cf85c2df1095f7abd756b12f:f8de672b94e27bb37ac9e628bd93ecc0e2f91b99#985368bd39fd6a59f1a341476daebfb2 - Cache
+    ncurses/6.4#21cb2fcdbe68c6d9509458b23d711919:6fd94ff778ad87d32e065fe15bf2a01b3dfd7cd1#76f4bb4f4ee6a0b24abb7630dbcb2926 - Cache
+    openssl/3.6.0#89e8af1d4a21afcac0557079d23d8890:b069f68962421440a4453f103c06d97e7a6a3ab4#13338463ce9e90a03f03ec8d279cb23d - Cache
+    spdlog/1.17.0#bcbaaf7147bda6ad24ffbd1ac3d7142c:18d0827ccd715ac99112948d9e69a45260d75cab#4494639ac07835527563269ee729c727 - Cache
+    sqlite3/3.45.2#60f2d3278e7bc12c8ef02ac75119c137:05b1f65ebd7aa8c1c131282082d84a508d2d4eb4#6e1c923e3ea7ec7d1983ce7241a67a0f - Cache
+    tcl/8.6.10#bb67af0f98ba1c42f524578e0d12daff:5ca55a159ed1a6ad669acd941f740162fb8c55e9#c6b92581ef7bebc16683912c7088465c - Cache
+    tk/8.6.10#cf99d5ded89fdc5ac329828497399acc:530e7d6fb0c965372dbd9dff26b36c1241096ac9#3da57d3ac64c0e8f4664913cb87a119d - Cache
+    xz_utils/5.4.5#a2ce5c2f137ef2b2770a68a2a697ba69:be7ccd6109b8a8f9da81fd00ee143a1f5bbd5bbf#1d2209c9ba22af10ce4aa1ada3d7a3f2 - Cache
+    zlib/1.3.1#cac0f6daea041b0ccf42934163defb20:be7ccd6109b8a8f9da81fd00ee143a1f5bbd5bbf#2f117cb5affbe8b06c2f56cbc76f53b3 - Cache
+Build requirements
+Skipped binaries
+    libxcrypt/4.4.36, autoconf/2.71, automake/1.16.5, bison/3.8.2, flex/2.6.4, gnu-config/cci.20210814, libtool/2.4.7, m4/1.4.19, meson/1.10.0, ninja/1.13.2, pkgconf/2.0.3, pkgconf/2.1.0
+
+======== Installing packages ========
+argparse/3.2: Already installed! (1 of 18)
+bzip2/1.0.8: Already installed! (2 of 18)
+drwav/0.13.14: Already installed! (3 of 18)
+expat/2.7.3: Already installed! (4 of 18)
+fmt/12.1.0: Already installed! (5 of 18)
+libffi/3.4.4: Already installed! (6 of 18)
+miniaudio/0.11.22: Already installed! (7 of 18)
+mpdecimal/2.5.0: Already installed! (8 of 18)
+sqlite3/3.45.2: Already installed! (9 of 18)
+xz_utils/5.4.5: Already installed! (10 of 18)
+zlib/1.3.1: Already installed! (11 of 18)
+gdbm/1.23: Already installed! (12 of 18)
+gdbm/1.23: Appending PATH environment variable: /Users/ams/.conan2/p/b/gdbmb05af03ff8826/p/bin
+ncurses/6.4: Already installed! (13 of 18)
+openssl/3.6.0: Already installed! (14 of 18)
+spdlog/1.17.0: Already installed! (15 of 18)
+tcl/8.6.10: Already installed! (16 of 18)
+tk/8.6.10: Already installed! (17 of 18)
+cpython/3.12.7: Already installed! (18 of 18)
+cpython/3.12.7: Appending PATH environment variable: /Users/ams/.conan2/p/b/cpythe837516fce241/p/bin
+cpython/3.12.7: Appending PYTHON environment variable: /Users/ams/.conan2/p/b/cpythe837516fce241/p/bin/python3.12
+cpython/3.12.7: Setting PYTHON_ROOT environment variable: /Users/ams/.conan2/p/b/cpythe837516fce241/p
+WARN: deprecated: Usage of deprecated Conan 1.X features that will be removed in Conan 2.X:
+WARN: deprecated:     'cpp_info.names' used in: expat/2.7.3, bzip2/1.0.8, sqlite3/3.45.2, tcl/8.6.10
+WARN: deprecated:     'cpp_info.build_modules' used in: bzip2/1.0.8, sqlite3/3.45.2
+WARN: deprecated:     'env_info' used in: cpython/3.12.7, bzip2/1.0.8, sqlite3/3.45.2, gdbm/1.23, tcl/8.6.10
+WARN: deprecated:     'cpp_info.filenames' used in: sqlite3/3.45.2
+WARN: deprecated:     'user_info' used in: cpython/3.12.7
+
+======== Finalizing install (deploy, generators) ========
+conanfile.txt: Writing generators to /Users/ams/dev/music-player/build/Release/generators
+conanfile.txt: Generator 'CMakeDeps' calling 'generate()'
+conanfile.txt: CMakeDeps necessary find_package() and targets for your CMakeLists.txt
+    find_package(spdlog)
+    find_package(drwav)
+    find_package(miniaudio)
+    find_package(argparse)
+    find_package(Python3)
+    target_link_libraries(... spdlog::spdlog drwav::drwav miniaudio::miniaudio argparse::argparse cpython::cpython)
+conanfile.txt: Generator 'CMakeToolchain' calling 'generate()'
+conanfile.txt: CMakeToolchain generated: conan_toolchain.cmake
+conanfile.txt: CMakeToolchain: Preset 'conan-release' added to CMakePresets.json.
+    (cmake>=3.23) cmake --preset conan-release
+    (cmake<3.23) cmake <path> -G "Unix Makefiles" -DCMAKE_TOOLCHAIN_FILE=generators/conan_toolchain.cmake  -DCMAKE_POLICY_DEFAULT_CMP0091=NEW -DCMAKE_BUILD_TYPE=Release
+conanfile.txt: CMakeToolchain generated: /Users/ams/dev/music-player/build/Release/generators/CMakePresets.json
+conanfile.txt: CMakeToolchain generated: /Users/ams/dev/music-player/CMakeUserPresets.json
+conanfile.txt: Generating aggregated env files
+conanfile.txt: Generated aggregated env files: ['conanbuild.sh', 'conanrun.sh']
+Install finished successfully
+ams@MacBook-Pro-von-Amsakan music-player % cmake --preset conan-release                                                       
+-- Using Conan toolchain: /Users/ams/dev/music-player/build/Release/generators/conan_toolchain.cmake
+-- Conan toolchain: Defining architecture flag: -m64
+-- Conan toolchain: Defining libcxx as C++ flags: -stdlib=libc++
+-- Conan toolchain: C++ Standard 17 with extensions ON
+-- Conan: Component target declared 'spdlog::spdlog'
+-- Conan: Component target declared 'fmt::fmt'
+-- Conan: Target declared 'drwav::drwav'
+-- Conan: Target declared 'miniaudio::miniaudio'
+-- Conan: Target declared 'argparse::argparse'
+-- Conan: Component target declared 'cpython::python'
+-- Conan: Component target declared 'cpython::_hidden'
+-- Conan: Component target declared 'cpython::embed'
+-- Conan: Target declared 'cpython::cpython'
+-- Conan: Component target declared 'OpenSSL::Crypto'
+-- Conan: Component target declared 'OpenSSL::SSL'
+-- Conan: Target declared 'openssl::openssl'
+-- Conan: Target declared 'ZLIB::ZLIB'
+-- Conan: Including build module from '/Users/ams/.conan2/p/b/opens89bbd27fe14bb/p/lib/cmake/conan-official-openssl-variables.cmake'
+-- Conan: Target declared 'expat::expat'
+-- Conan: Target declared 'libffi::libffi'
+-- Conan: Component target declared 'mpdecimal::libmpdecimal'
+-- Conan: Component target declared 'mpdecimal::libmpdecimal++'
+-- Conan: Target declared 'mpdecimal::mpdecimal'
+-- Conan: Target declared 'BZip2::BZip2'
+-- Conan: Including build module from '/Users/ams/.conan2/p/b/bzip20a35b7bde4ff9/p/lib/cmake/conan-official-bzip2-variables.cmake'
+-- Conan: Target declared 'gdbm::gdbm'
+-- Conan: Component target declared 'SQLite::SQLite3'
+-- Conan: Target declared 'tk::tk'
+-- Conan: Target declared 'tcl::tcl'
+-- Conan: Component target declared 'ncurses::tinfo'
+-- Conan: Component target declared 'ncurses::libcurses++'
+-- Conan: Component target declared 'ncurses::libcurses'
+-- Conan: Component target declared 'ncurses::panel'
+-- Conan: Component target declared 'ncurses::menu'
+-- Conan: Component target declared 'ncurses::form'
+-- Conan: Component target declared 'ncurses::ticlib'
+-- Conan: Component target declared 'ncurses::curses++'
+-- Conan: Target declared 'Curses::Curses'
+-- Conan: Including build module from '/Users/ams/.conan2/p/b/ncurs4af485967ca5d/p/lib/cmake/conan-official-ncurses-targets.cmake'
+-- Conan: Target declared 'LibLZMA::LibLZMA'
+-- Conan: Including build module from '/Users/ams/.conan2/p/b/xz_ut448b10b06570e/p/lib/cmake/conan-official-xz_utils-variables.cmake'
+-- Conan: Including build module from '/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/cmake/use_conan_python.cmake'
+-- Found Python3: /Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/cmake/../../bin/python3.12 (found version "3.12.7") found components: Interpreter
+-- Configuring done (1.4s)
+-- Generating done (0.1s)
+-- Build files have been written to: /Users/ams/dev/music-player/build/Release
+ams@MacBook-Pro-von-Amsakan music-player % cmake --build --preset cams@MacBook-Pro-von-Amsakan music-player % cmake --preset conan-release                                                       
+-- Using Conan toolchain: /Users/ams/dev/music-player/build/Release/generators/conan_toolchain.cmake
+-- Conan toolchain: Defining architecture flag: -m64
+-- Conan toolchain: Defining libcxx as C++ flags: -stdlib=libc++
+-- Conan toolchain: C++ Standard 17 with extensions ON
+-- Conan: Component target declared 'spdlog::spdlog'
+-- Conan: Component target declared 'fmt::fmt'
+-- Conan: Target declared 'drwav::drwav'
+-- Conan: Target declared 'miniaudio::miniaudio'
+-- Conan: Target declared 'argparse::argparse'
+-- Conan: Component target declared 'cpython::python'
+-- Conan: Component target declared 'cpython::_hidden'
+-- Conan: Component target declared 'cpython::embed'
+-- Conan: Target declared 'cpython::cpython'
+-- Conan: Component target declared 'OpenSSL::Crypto'
+-- Conan: Component target declared 'OpenSSL::SSL'
+-- Conan: Target declared 'openssl::openssl'
+-- Conan: Target declared 'ZLIB::ZLIB'
+-- Conan: Including build module from '/Users/ams/.conan2/p/b/opens89bbd27fe14bb/p/lib/cmake/conan-official-openssl-variables.cmake'
+-- Conan: Target declared 'expat::expat'
+-- Conan: Target declared 'libffi::libffi'
+-- Conan: Component target declared 'mpdecimal::libmpdecimal'
+ams@MacBook-Pro-von-Amsakan music-player % cmake --preset conan-release                                                       
+-- Using Conan toolchain: /Users/ams/dev/music-player/build/Release/generators/conan_toolchain.cmake
+-- Conan toolchain: Defining architecture flag: -m64
+-- Conan toolchain: Defining libcxx as C++ flags: -stdlib=libc++
+-- Conan toolchain: C++ Standard 17 with extensions ON
+-- Conan: Component target declared 'spdlog::spdlog'
+-- Conan: Component target declared 'fmt::fmt'
+-- Conan: Target declared 'drwav::drwav'
+-- Conan: Target declared 'miniaudio::miniaudio'
+-- Conan: Target declared 'argparse::argparse'
+-- Conan: Component target declared 'cpython::python'
+-- Conan: Component target declared 'cpython::_hidden'
+-- Conan: Component target declared 'cpython::embed'
+-- Conan: Target declared 'cpython::cpython'
+-- Conan: Component target declared 'OpenSSL::Crypto'
+-- Conan: Component target declared 'OpenSSL::SSL'
+-- Conan: Target declared 'openssl::openssl'
+-- Conan: Target declared 'ZLIB::ZLIB'
+-- Conan: Including build module from '/Users/ams/.conan2/p/b/opens89bbd27fe14bb/p/lib/cmake/conan-official-openssl-variables.cmake'
+-- Conan: Target declared 'expat::expat'
+-- Conan: Target declared 'libffi::libffi'
+-- Conan: Component target declared 'mpdecimal::libmpdecimal'
+-- Conan: Component target declared 'mpdecimal::libmpdecimal++'
+-- Conan: Target declared 'mpdecimal::mpdecimal'
+-- Conan: Target declared 'BZip2::BZip2'
+-- Conan: Including build module from '/Users/ams/.conan2/p/b/bzip20a35b7bde4ff9/p/lib/cmake/conan-official-bzip2-variables.cmake'
+-- Conan: Target declared 'gdbm::gdbm'
+-- Conan: Component target declared 'SQLite::SQLite3'
+-- Conan: Target declared 'tk::tk'
+-- Conan: Target declared 'tcl::tcl'
+-- Conan: Component target declared 'ncurses::tinfo'
+-- Conan: Component target declared 'ncurses::libcurses++'
+-- Conan: Component target declared 'ncurses::libcurses'
+-- Conan: Component target declared 'ncurses::panel'
+-- Conan: Component target declared 'ncurses::menu'
+-- Conan: Component target declared 'ncurses::form'
+-- Conan: Component target declared 'ncurses::ticlib'
+-- Conan: Component target declared 'ncurses::curses++'
+-- Conan: Target declared 'Curses::Curses'
+-- Conan: Including build module from '/Users/ams/.conan2/p/b/ncurs4af485967ca5d/p/lib/cmake/conan-official-ncurses-targets.cmake'
+-- Conan: Target declared 'LibLZMA::LibLZMA'
+-- Conan: Including build module from '/Users/ams/.conan2/p/b/xz_ut448b10b06570e/p/lib/cmake/conan-official-xz_utils-variables.cmake'
+-- Conan: Including build module from '/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/cmake/use_conan_python.cmake'
+-- Configuring done (0.5s)
+-- Generating done (0.1s)
+-- Build files have been written to: /Users/ams/dev/music-player/build/Release
+ams@MacBook-Pro-von-Amsakan music-player % cmake --preset conan-release
+-- Using Conan toolchain: /Users/ams/dev/music-player/build/Release/generators/conan_toolchain.cmake
+-- Conan toolchain: Defining architecture flag: -m64
+-- Conan toolchain: Defining libcxx as C++ flags: -stdlib=libc++
+-- Conan toolchain: C++ Standard 17 with extensions ON
+-- Conan: Component target declared 'spdlog::spdlog'
+-- Conan: Component target declared 'fmt::fmt'
+-- Conan: Target declared 'drwav::drwav'
+-- Conan: Target declared 'miniaudio::miniaudio'
+-- Conan: Target declared 'argparse::argparse'
+-- Conan: Component target declared 'cpython::python'
+-- Conan: Component target declared 'cpython::_hidden'
+-- Conan: Component target declared 'cpython::embed'
+-- Conan: Target declared 'cpython::cpython'
+-- Conan: Component target declared 'OpenSSL::Crypto'
+-- Conan: Component target declared 'OpenSSL::SSL'
+-- Conan: Target declared 'openssl::openssl'
+-- Conan: Target declared 'ZLIB::ZLIB'
+-- Conan: Including build module from '/Users/ams/.conan2/p/b/opens89bbd27fe14bb/p/lib/cmake/conan-official-openssl-variables.cmake'
+-- Conan: Target declared 'expat::expat'
+-- Conan: Target declared 'libffi::libffi'
+-- Conan: Component target declared 'mpdecimal::libmpdecimal'
+-- Conan: Component target declared 'mpdecimal::libmpdecimal++'
+-- Conan: Target declared 'mpdecimal::mpdecimal'
+-- Conan: Target declared 'BZip2::BZip2'
+-- Conan: Including build module from '/Users/ams/.conan2/p/b/bzip20a35b7bde4ff9/p/lib/cmake/conan-official-bzip2-variables.cmake'
+-- Conan: Target declared 'gdbm::gdbm'
+-- Conan: Component target declared 'SQLite::SQLite3'
+-- Conan: Target declared 'tk::tk'
+-- Conan: Target declared 'tcl::tcl'
+-- Conan: Component target declared 'ncurses::tinfo'
+-- Conan: Component target declared 'ncurses::libcurses++'
+-- Conan: Component target declared 'ncurses::libcurses'
+-- Conan: Component target declared 'ncurses::panel'
+-- Conan: Component target declared 'ncurses::menu'
+-- Conan: Component target declared 'ncurses::form'
+-- Conan: Component target declared 'ncurses::ticlib'
+-- Conan: Component target declared 'ncurses::curses++'
+-- Conan: Target declared 'Curses::Curses'
+-- Conan: Including build module from '/Users/ams/.conan2/p/b/ncurs4af485967ca5d/p/lib/cmake/conan-official-ncurses-targets.cmake'
+-- Conan: Target declared 'LibLZMA::LibLZMA'
+-- Conan: Including build module from '/Users/ams/.conan2/p/b/xz_ut448b10b06570e/p/lib/cmake/conan-official-xz_utils-variables.cmake'
+-- Conan: Including build module from '/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/cmake/use_conan_python.cmake'
+-- Configuring done (0.4s)
+-- Generating done (0.1s)
+-- Build files have been written to: /Users/ams/dev/music-player/build/Release
+ams@MacBook-Pro-von-Amsakan music-player % cmake --build --preset conan-release                                       
+[ 30%] Building CXX object modules/python_effect/CMakeFiles/python_effect.dir/python_effect.cc.o
+[ 30%] Built target file_reader
+[ 50%] Built target arg_parser
+[ 70%] Built target audio_engine
+[ 80%] Linking CXX static library libpython_effect.a
+[ 80%] Built target python_effect
+[ 90%] Building CXX object main/CMakeFiles/music_player.dir/main.cc.o     
+/Users/ams/dev/music-player/main/main.cc:25:16: error: cannot use dot operator on a type                                  
+  python_effect.run("");
+               ^
+1 error generated.
+gmake[2]: *** [main/CMakeFiles/music_player.dir/build.make:79: main/CMakeFiles/music_player.dir/main.cc.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:220: main/CMakeFiles/music_player.dir/all] Error 2
+gmake: *** [Makefile:91: all] Error 2
+ams@MacBook-Pro-von-Amsakan music-player % cmake --build --preset conan-release
+[ 20%] Built target file_reader
+[ 40%] Built target arg_parser
+[ 60%] Built target python_effect
+[ 80%] Built target audio_engine
+[ 90%] Building CXX object main/CMakeFiles/music_player.dir/main.cc.o     
+[100%] Linking CXX executable music_player
+ld: warning: ignoring duplicate libraries: '-lc++'
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[2](getbuildinfo.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[3](token.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[4](pegen.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[5](pegen_errors.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[6](action_helpers.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[7](parser.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[8](string_parser.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[9](peg_api.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[10](myreadline.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[11](tokenizer.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[12](abstract.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[13](boolobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[14](bytes_methods.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[15](bytearrayobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[16](bytesobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[17](call.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[18](capsule.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[19](cellobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[20](classobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[21](codeobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[22](complexobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[23](descrobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[24](enumobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[25](exceptions.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[26](genericaliasobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[27](genobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[28](fileobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[29](floatobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[30](frameobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[31](funcobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[32](interpreteridobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[33](iterobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[34](listobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[35](longobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[36](dictobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[37](odictobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[38](memoryobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[39](methodobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[40](moduleobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[41](namespaceobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[42](object.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[43](obmalloc.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[44](picklebufobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[45](rangeobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[46](setobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[47](sliceobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[48](structseq.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[49](tupleobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[50](typeobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[51](typevarobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[52](unicodeobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[53](unicodectype.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)   
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[54](unionobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[55](weakrefobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[56](_warnings.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[57](Python-ast.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[58](Python-tokenize.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[59](asdl.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[60](assemble.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[61](ast.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[62](ast_opt.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[63](ast_unparse.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[64](bltinmodule.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[65](ceval.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[66](codecs.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[67](compile.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[68](context.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[70](errors.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[71](flowgraph.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[72](frame.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[74](future.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[75](getargs.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[76](getcompiler.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[77](getcopyright.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[78](getplatform.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[79](getversion.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[80](ceval_gil.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[81](hamt.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[82](hashtable.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[83](import.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[84](importdl.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)           
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[85](initconfig.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[86](instrumentation.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[87](intrinsics.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[88](legacy_tracing.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[89](marshal.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[90](modsupport.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[91](mysnprintf.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[92](mystrtoul.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[93](pathconfig.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[94](preconfig.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[95](pyarena.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[96](pyctype.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[98](pyhash.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[99](pylifecycle.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[100](pymath.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[101](pystate.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[102](pythonrun.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[103](pytime.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[104](bootstrap_hash.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[105](specialize.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[106](structmember.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[107](symtable.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[108](sysmodule.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)                  
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[109](thread.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[110](traceback.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[111](tracemalloc.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ams@MacBook-Pro-von-Amsakan music-player % cmake --build --preset conan-release                                               
+[ 10%] Building CXX object modules/file_reader/CMakeFiles/file_reader.dir/file_reader.cc.o
+[ 30%] Built target arg_parser
+[ 50%] Built target python_effect
+[ 60%] Linking CXX static library libfile_reader.a
+[ 60%] Built target file_reader
+[ 70%] Building CXX object modules/audio_engine/CMakeFiles/audio_engine.dir/audio_engine.cc.o
+[ 80%] Linking CXX static library libaudio_engine.a
+[ 80%] Built target audio_engine
+[ 90%] Building CXX object main/CMakeFiles/music_player.dir/main.cc.o     
+[100%] Linking CXX executable music_player
+ld: warning: ignoring duplicate libraries: '-lc++'
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[2](getbuildinfo.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[3](token.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[4](pegen.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[5](pegen_errors.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[6](action_helpers.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[7](parser.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[8](string_parser.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[9](peg_api.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[10](myreadline.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[11](tokenizer.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[12](abstract.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[13](boolobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[14](bytes_methods.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[15](bytearrayobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[16](bytesobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[17](call.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[18](capsule.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[19](cellobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[20](classobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[21](codeobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[22](complexobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[23](descrobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[24](enumobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[25](exceptions.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[26](genericaliasobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[27](genobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[28](fileobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[29](floatobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[30](frameobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[31](funcobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[32](interpreteridobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[33](iterobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[34](listobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[35](longobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[36](dictobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[37](odictobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[38](memoryobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[39](methodobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[40](moduleobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[41](namespaceobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[42](object.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[43](obmalloc.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[44](picklebufobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[45](rangeobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[46](setobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[47](sliceobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[48](structseq.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[49](tupleobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[50](typeobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[51](typevarobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[52](unicodeobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[53](unicodectype.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)   
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[54](unionobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[55](weakrefobject.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[56](_warnings.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[57](Python-ast.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[58](Python-tokenize.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[59](asdl.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[60](assemble.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[61](ast.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[62](ast_opt.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[63](ast_unparse.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[64](bltinmodule.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[65](ceval.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[66](codecs.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[67](compile.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[68](context.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[70](errors.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[71](flowgraph.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[72](frame.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[74](future.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[75](getargs.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[76](getcompiler.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[77](getcopyright.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[78](getplatform.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[79](getversion.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[80](ceval_gil.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[81](hamt.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[82](hashtable.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[83](import.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[84](importdl.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)           
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[85](initconfig.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[86](instrumentation.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[87](intrinsics.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[88](legacy_tracing.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[89](marshal.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[90](modsupport.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[91](mysnprintf.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[92](mystrtoul.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[93](pathconfig.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[94](preconfig.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[95](pyarena.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[96](pyctype.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[98](pyhash.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[99](pylifecycle.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[100](pymath.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[101](pystate.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[102](pythonrun.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[103](pytime.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[104](bootstrap_hash.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[105](specialize.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[106](structmember.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[107](symtable.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[108](sysmodule.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)                  
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[109](thread.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[110](traceback.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[111](tracemalloc.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[112](getopt.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241/p/lib/libpython3.12.a[113](pystrcmp.o)) was built for newer 'macOS' version (13.7) than being linked (13.0)
+ld: warning: object file (/Users/ams/.conan2/p/b/cpythe837516fce241
+%                                                                  
+ams@MacBook-Pro-von-Amsakan music-player % ls
+CHANGELOG.md            build
+CMakeLists.txt          conanfile.txt
+CMakeUserPresets.json   main
+LICENSE                 modules
+README.md               sine.wav
+%                                                                  
+ams@MacBook-Pro-von-Amsakan music-player % 

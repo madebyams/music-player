@@ -15,7 +15,11 @@ arg_parser::arg_parser() {
     .help("The amount of channels to playback")
     .default_value(2)
     .scan<'i', int>();
-  }
+
+  parser.add_argument("--pyfx")
+    .help("Filepath to your python effect")
+    .default_value("");
+}
 
 void arg_parser::parse(int argc, char* argv[]) {
   parser.parse_args(argc, argv);

@@ -1,3 +1,4 @@
 add_subdirectory(arg_parser)
 add_subdirectory(file_reader)
 add_subdirectory(audio_engine)
+add_subdirectory(python_effect)

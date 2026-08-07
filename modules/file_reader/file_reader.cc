@@ -25,6 +25,11 @@ player_buffer file_reader::read_file(std::string& filename) {
   return audio_data;
 }
 
+std::string file_reader::read_text_file(std::string& filename) {
+  std::vector<char> bytes{};
+  return {bytes.begin(), bytes.end()};
+}
+
 std::vector<char> file_reader::read_bytes(std::string& filename) {
   std::vector<char> bytes{};
   std::ifstream file_stream;

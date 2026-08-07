@@ -7,6 +7,7 @@ PUBLIC
 	audio_engine
 	arg_parser
 	file_reader
+	python_effect
 
 	spdlog::spdlog
 )
