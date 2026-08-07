@@ -4,9 +4,10 @@ A minimal command-line WAV player written in C++.
 
 ## How it works
 
+- `arg_parser` parses command-line arguments (file path, sample rate) using [argparse](https://github.com/p-ranav/argparse).
 - `file_reader` reads a WAV file from disk and decodes it to `f32` PCM samples using [dr_wav](https://github.com/mackron/dr_libs).
 - `audio_engine` plays those samples back through the default output device using [miniaudio](https://miniaud.io/).
-- `main` wires the two together: it reads the file given on the command line and plays it.
+- `main` wires the three together: it parses arguments, reads the given file, and plays it.
 
 ## Requirements
 
@@ -32,6 +33,12 @@ The `music_player` executable is written to `build/Release/main/music_player`.
 ./build/Release/main/music_player path/to/file.wav
 ```
 
+Optionally override the playback sample rate (defaults to 44100 Hz):
+
+```bash
+./build/Release/main/music_player path/to/file.wav --sample-rate 48000
+```
+
 Set `SPDLOG_LEVEL=debug` for verbose logging:
 
 ```bash
@@ -45,17 +52,19 @@ Managed via Conan (see [conanfile.txt](conanfile.txt)):
 - [spdlog](https://github.com/gabime/spdlog) — logging
 - [dr_wav](https://github.com/mackron/dr_libs) — WAV decoding
 - [miniaudio](https://miniaud.io/) — cross-platform audio playback
+- [argparse](https://github.com/p-ranav/argparse) — command-line argument parsing
 
 ## Project layout
 
 ```
 main/               CLI entry point
 modules/
+  arg_parser/        Command-line argument parsing via argparse
   audio_engine/      Playback via miniaudio
   file_reader/        WAV decoding via dr_wav
 ```
 
 ## Known limitations
 
-- Playback is hardcoded to 44.1kHz stereo (`SAMPLE_RATE`/`CHANNELS` in [audio_engine.cc](modules/audio_engine/audio_engine.cc)) regardless of the source file's actual format.
+- Playback channel count is hardcoded to stereo (`CHANNELS` in [audio_engine.cc](modules/audio_engine/audio_engine.cc)) regardless of the source file's actual format.
 - Only WAV files are supported.
