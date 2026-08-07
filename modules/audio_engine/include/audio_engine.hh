@@ -6,5 +6,5 @@
 
 class audio_engine{
 public:
-  void play(player_buffer samples, int sample_rate);
+  void play(player_buffer samples, int sample_rate, int channels);
 };

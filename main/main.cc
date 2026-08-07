@@ -8,6 +8,7 @@
 int main(int argc, char* argv[]) {
   std::string filename;
   int sample_rate;
+  int channels;
   
   arg_parser arg_parser{};
   audio_engine audio_engine{};
@@ -22,7 +23,8 @@ int main(int argc, char* argv[]) {
   
   spdlog::info("Playing {}", filename);
   sample_rate = arg_parser.get_arg<int>("--sample-rate");
-  audio_engine.play(samples, sample_rate);
+  channels = arg_parser.get_arg<int>("--channels");
+  audio_engine.play(samples, sample_rate, channels);
   
   return 0;
 }

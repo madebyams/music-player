@@ -25,20 +25,23 @@ void data_callback(
 
 }
 
-void audio_engine::play(player_buffer samples, int sample_rate) {
+void audio_engine::play(
+			player_buffer samples,
+			int sample_rate,
+			int channels) {
   ma_device device;
   ma_device_config device_config = ma_device_config_init(ma_device_type_playback);
   ma_audio_buffer buffer;
   ma_audio_buffer_config audio_buffer_config = ma_audio_buffer_config_init(
     ma_format_f32,
-    CHANNELS,
-    samples.size() / CHANNELS,
+    channels,
+    samples.size() / channels,
     samples.data(),
     nullptr
   );
 
   device_config.playback.format = ma_format_f32;
-  device_config.playback.channels = CHANNELS;
+  device_config.playback.channels = channels;
   device_config.sampleRate = sample_rate;
   device_config.dataCallback = data_callback;
   device_config.pUserData = &buffer;
