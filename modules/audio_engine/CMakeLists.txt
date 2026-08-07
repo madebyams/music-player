@@ -11,4 +11,6 @@ target_link_libraries(audio_engine
 PUBLIC
 	miniaudio::miniaudio
 	spdlog::spdlog
+PRIVATE
+	file_reader
 )

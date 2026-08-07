@@ -7,7 +7,6 @@
 #include <miniaudio.h>
 #include <spdlog/spdlog.h>
 
-constexpr uint32_t SAMPLE_RATE{44100};
 constexpr uint8_t CHANNELS{2};
 
 void data_callback(
@@ -26,7 +25,7 @@ void data_callback(
 
 }
 
-void audio_engine::play(std::vector<float> samples) {
+void audio_engine::play(player_buffer samples, int sample_rate) {
   ma_device device;
   ma_device_config device_config = ma_device_config_init(ma_device_type_playback);
   ma_audio_buffer buffer;
@@ -40,7 +39,7 @@ void audio_engine::play(std::vector<float> samples) {
 
   device_config.playback.format = ma_format_f32;
   device_config.playback.channels = CHANNELS;
-  device_config.sampleRate = SAMPLE_RATE;
+  device_config.sampleRate = sample_rate;
   device_config.dataCallback = data_callback;
   device_config.pUserData = &buffer;
   

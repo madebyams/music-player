@@ -6,7 +6,7 @@
 #include <dr_wav.h>
 #include <spdlog/spdlog.h>
 
-std::vector<float> file_reader::read_file(std::string& filename) {
+player_buffer file_reader::read_file(std::string& filename) {
   drwav wav;
   std::vector<float> audio_data{};
   auto bytes = this->read_bytes(filename);

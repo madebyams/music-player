@@ -1,0 +1,169 @@
+ams@MacBook-Pro-von-Amsakan music-player % conan install . --build=missing
+
+======== Input profiles ========
+Profile host:
+[settings]
+arch=x86_64
+build_type=Release
+compiler=apple-clang
+compiler.cppstd=gnu17
+compiler.libcxx=libc++
+compiler.version=15
+os=Macos
+
+Profile build:
+[settings]
+arch=x86_64
+build_type=Release
+compiler=apple-clang
+compiler.cppstd=gnu17
+compiler.libcxx=libc++
+compiler.version=15
+os=Macos
+
+
+======== Computing dependency graph ========
+argparse/3.2: Not found in local cache, looking in remotes...
+argparse/3.2: Checking remote: conancenter
+Connecting to remote 'conancenter' anonymously
+argparse/3.2: Downloaded recipe revision e3bf8d3aa1eb0d23c48ec61b60e0a029
+Graph root
+    conanfile.txt: /Users/ams/dev/music-player/conanfile.txt
+Requirements
+    argparse/3.2#e3bf8d3aa1eb0d23c48ec61b60e0a029 - Downloaded (conancenter)
+    drwav/0.13.14#b5888a28ca37a2ad83182b66a568dd8c - Cache
+    fmt/12.1.0#50abab23274d56bb8f42c94b3b9a40c7 - Cache
+    miniaudio/0.11.22#dbf82d76a57d0555140d1604c30024d9 - Cache
+    spdlog/1.17.0#bcbaaf7147bda6ad24ffbd1ac3d7142c - Cache
+
+======== Computing necessary packages ========
+Requirements
+    argparse/3.2#e3bf8d3aa1eb0d23c48ec61b60e0a029:da39a3ee5e6b4b0d3255bfef95601890afd80709#beb5c17af6867943c09cacf1b37bb049 - Download (conancenter)
+    drwav/0.13.14#b5888a28ca37a2ad83182b66a568dd8c:f3f0700263f7443ae3dc9fc9512dfe1a58dcff5e#f7769b955fe26341467e43f6fe4b91ad - Cache
+    fmt/12.1.0#50abab23274d56bb8f42c94b3b9a40c7:440a2a86f952b007697d309c7cdae69ec0e267df#736319e148219b41b385b37997229f28 - Cache
+    miniaudio/0.11.22#dbf82d76a57d0555140d1604c30024d9:da39a3ee5e6b4b0d3255bfef95601890afd80709#9496f37d7d320754c8e63248be432e53 - Cache
+%                                                                   
+ams@MacBook-Pro-von-Amsakan music-player % cmake --build --preset conan-release
+-- Using Conan toolchain: /Users/ams/dev/music-player/build/Release/generators/conan_toolchain.cmake
+-- Conan toolchain: Defining architecture flag: -m64
+-- Conan toolchain: Defining libcxx as C++ flags: -stdlib=libc++
+ams@MacBook-Pro-von-Amsakan music-player % cmake --build --preset c
+onan-release
+[ 25%] Built target file_reader
+[ 37%] Building CXX object modules/arg_parser/CMakeFiles/arg_parser
+.dir/arg_parser.cc.o
+[ 62%] Built target audio_engine
+/Users/ams/dev/music-player/modules/arg_parser/arg_parser.cc:8:6: e
+rror: no matching member function for call to 'scan'              
+    .scan<'i', std::string>();
+    ~^~~~~~~~~~~~~~~~~~~~~~
+/Users/ams/.conan2/p/argpa1fafd94012278/p/include/argparse/argparse
+.hpp:822:8: note: candidate template ignored: requirement 'std::is_
+arithmetic_v<std::string>' was not satisfied [with Shape = 'i', T =
+ std::string]
+  auto scan() -> std::enable_if_t<std::is_arithmetic_v<T>, Argument
+ &> {
+       ^
+/Users/ams/dev/music-player/modules/arg_parser/arg_parser.cc:19:1: 
+error: unknown type name 'T'                                      
+T arg_parser::get_arg(std::string name) {
+^
+/Users/ams/dev/music-player/modules/arg_parser/arg_parser.cc:20:21:
+ error: use of undeclared identifier 'T'
+  return parser.get<T>(name);
+                    ^
+3 errors generated.
+gmake[2]: *** [modules/arg_parser/CMakeFiles/arg_parser.dir/build.m
+ake:79: modules/arg_parser/CMakeFiles/arg_parser.dir/arg_parser.cc.
+o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:228: modules/arg_parser/CMakeFi
+les/arg_parser.dir/all] Error 2
+gmake: *** [Makefile:91: all] Error 2
+ams@MacBook-Pro-von-Amsakan music-player % cmake --build --preset c
+onan-release
+[ 25%] Built target file_reader
+[ 37%] Building CXX object modules/arg_parser/CMakeFiles/arg_parser
+.dir/arg_parser.cc.o
+[ 62%] Built target audio_engine
+/Users/ams/dev/music-player/modules/arg_parser/arg_parser.cc:18:1: 
+ams@MacBook-Pro-von-Amsakan music-player % cmake --build --preset c
+onan-release
+[ 25%] Built target file_reader
+[ 50%] Built target arg_parser
+[ 75%] Built target audio_engine
+[ 87%] Linking CXX executable music_player
+ld: Undefined symbols:
+  std::__1::basic_string<char, std::__1::char_traits<char>, std::__
+1::allocator<char>> arg_parser::get_arg<std::__1::basic_string<char
+, std::__1::char_traits<char>, std::__1::allocator<char>>>(std::__1
+::basic_string<char, std::__1::char_traits<char>, std::__1::allocat
+or<char>>), referenced from:
+      _main in main.cc.o
+clang: error: linker command failed with exit code 1 (use -v to see
+ invocation)  
+gmake[2]: *** [main/CMakeFiles/music_player.dir/build.make:106: mai
+n/music_player] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:196: main/CMakeFiles/music_play
+er.dir/all] Error 2
+gmake: *** [Makefile:91: all] Error 2
+ams@MacBook-Pro-von-Amsakan music-player % cmake --preset conan-rel
+ease                                                       
+-- Using Conan toolchain: /Users/ams/dev/music-player/build/Release
+/generators/conan_toolchain.cmake
+-- Conan toolchain: Defining architecture flag: -m64
+-- Conan toolchain: Defining libcxx as C++ flags: -stdlib=libc++
+-- Conan toolchain: C++ Standard 17 with extensions ON
+-- The CXX compiler identification is AppleClang 15.0.0.15000100
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /Applications/Xcode.app/Contents
+/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ - skippe
+d
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Conan: Component target declared 'spdlog::spdlog'
+-- Conan: Component target declared 'fmt::fmt'
+-- Conan: Target declared 'drwav::drwav'
+-- Conan: Target declared 'miniaudio::miniaudio'
+-- Conan: Target declared 'argparse::argparse'
+-- Configuring done (1.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /Users/ams/dev/music-player/bu
+ild/Release
+ams@MacBook-Pro-von-Amsakan music-player % cmake --build --preset c
+onan-release                                       
+[ 12%] Building CXX object modules/arg_parser/CMakeFiles/arg_parser
+.dir/arg_parser.cc.o
+[ 25%] Building CXX object modules/file_reader/CMakeFiles/file_read
+er.dir/file_reader.cc.o
+[ 37%] Linking CXX static library libfile_reader.a
+[ 37%] Built target file_reader
+[ 50%] Building CXX object modules/audio_engine/CMakeFiles/audio_en
+gine.dir/audio_engine.cc.o
+[ 62%] Linking CXX static library libarg_parser.a
+[ 62%] Built target arg_parser
+[ 75%] Linking CXX static library libaudio_engine.a
+[ 75%] Built target audio_engine
+[ 87%] Building CXX object main/CMakeFiles/music_player.dir/main.cc
+ams@MacBook-Pro-von-Amsakan music-player % ./build/Release/main/mus
+ic_player ~/Downloads/stfu.wav
+[2026-08-07 09:49:42.920] [info] Playing /Users/ams/Downloads/stfu.
+wav                            
+^X^C
+ams@MacBook-Pro-von-Amsakan music-player % ./build/Release/main/mus
+ic_player ~/Downloads/stfu.wav --sample-rate 48000
+[2026-08-07 09:50:02.800] [info] Playing /Users/ams/Downloads/stfu.
+wav                            
+libc++abi: terminating due to uncaught exception of type std::bad_a
+ny_cast: bad any cast
+zsh: abort      ./build/Release/main/music_player ~/Downloads/stfu.
+wav --sample-rate 48000
+ams@MacBook-Pro-von-Amsakan music-player % ./build/Release/main/mus
+ic_player ~/Downloads/stfu.wav --sample-rate "48000"
+[2026-08-07 09:50:23.507] [info] Playing /Users/ams/Downloads/stfu.
+wav                            
+libc++abi: terminating due to uncaught exception of type std::bad_a
+ny_cast: bad any cast
+zsh: abort      ./build/Release/main/music_player ~/Downloads/stfu.
+wav --sample-rate "48000"
+ams@MacBook-Pro-von-Amsakan music-player % 

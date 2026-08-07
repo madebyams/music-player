@@ -4,6 +4,7 @@ project(music_player CXX)
 find_package(spdlog REQUIRED)
 find_package(drwav REQUIRED)
 find_package(miniaudio REQUIRED)
+find_package(argparse REQUIRED)
 
 add_subdirectory(main)
 add_subdirectory(modules)

@@ -5,6 +5,7 @@ add_executable(music_player
 target_link_libraries(music_player
 PUBLIC
 	audio_engine
+	arg_parser
 	file_reader
 
 	spdlog::spdlog

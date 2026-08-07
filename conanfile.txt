@@ -2,6 +2,7 @@
 spdlog/1.17.0
 drwav/0.13.14
 miniaudio/0.11.22
+argparse/3.2
 
 [generators]
 CMakeDeps
