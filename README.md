@@ -4,7 +4,7 @@ A minimal command-line WAV player written in C++.
 
 ## How it works
 
-- `arg_parser` parses command-line arguments (file path, sample rate) using [argparse](https://github.com/p-ranav/argparse).
+- `arg_parser` parses command-line arguments (file path, sample rate, channels) using [argparse](https://github.com/p-ranav/argparse).
 - `file_reader` reads a WAV file from disk and decodes it to `f32` PCM samples using [dr_wav](https://github.com/mackron/dr_libs).
 - `audio_engine` plays those samples back through the default output device using [miniaudio](https://miniaud.io/).
 - `main` wires the three together: it parses arguments, reads the given file, and plays it.
@@ -33,10 +33,10 @@ The `music_player` executable is written to `build/Release/main/music_player`.
 ./build/Release/main/music_player path/to/file.wav
 ```
 
-Optionally override the playback sample rate (defaults to 44100 Hz):
+Optionally override the playback sample rate (defaults to 44100 Hz) and channel count (defaults to 2):
 
 ```bash
-./build/Release/main/music_player path/to/file.wav --sample-rate 48000
+./build/Release/main/music_player path/to/file.wav --sample-rate 48000 --channels 1
 ```
 
 Set `SPDLOG_LEVEL=debug` for verbose logging:
@@ -66,5 +66,5 @@ modules/
 
 ## Known limitations
 
-- Playback channel count is hardcoded to stereo (`CHANNELS` in [audio_engine.cc](modules/audio_engine/audio_engine.cc)) regardless of the source file's actual format.
+- `--sample-rate` and `--channels` only change how the buffer is played back — they don't resample or remix the source audio, so mismatched values will play back distorted or at the wrong pitch/speed.
 - Only WAV files are supported.

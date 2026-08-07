@@ -145,4 +145,78 @@ gine.dir/audio_engine.cc.o
 [ 75%] Linking CXX static library libaudio_engine.a
 [ 75%] Built target audio_engine
 [ 87%] Building CXX object main/CMakeFiles/music_player.dir/main.cc
-ams@MacBook-Pro-von-Amsakan music-player %   
+ams@MacBook-Pro-von-Amsakan music-player % cmake --build --preset c
+onan-release
+[ 25%] Building CXX object modules/arg_parser/CMakeFiles/arg_parser
+.dir/arg_parser.cc.o
+[ 37%] Built target file_reader
+[ 50%] Building CXX object modules/audio_engine/CMakeFiles/audio_en
+gine.dir/audio_engine.cc.o
+[ 62%] Linking CXX static library libarg_parser.a
+[ 62%] Built target arg_parser
+[ 75%] Linking CXX static library libaudio_engine.a
+[ 75%] Built target audio_engine
+[ 87%] Building CXX object main/CMakeFiles/music_player.dir/main.cc
+.o     
+[100%] Linking CXX executable music_player
+[100%] Built target music_player
+ams@MacBook-Pro-von-Amsakan music-player % cmake --build --preset c
+onan-release
+[ 25%] Built target file_reader
+[ 50%] Built target arg_parser
+[ 62%] Building CXX object modules/audio_engine/CMakeFiles/audio_en
+gine.dir/audio_engine.cc.o
+[ 75%] Linking CXX static library libaudio_engine.a
+[ 75%] Built target audio_engine
+[ 87%] Linking CXX executable music_player
+[100%] Built target music_player
+ams@MacBook-Pro-von-Amsakan music-player % ./build/Release/main/mus
+ic_player ~/Downloads/stfu.wav --sample-rate "48000"
+[2026-08-07 10:10:10.806] [info] Playing /Users/ams/Downloads/stfu.
+wav                            
+^C
+ams@MacBook-Pro-von-Amsakan music-player % ./build/Release/main/mus
+ic_player ~/Downloads/stfu.wav --sample-rate 48000            
+[2026-08-07 10:10:27.013] [info] Playing /Users/ams/Downloads/stfu.
+wav                            
+^C
+ams@MacBook-Pro-von-Amsakan music-player % ./build/Release/main/mus
+ic_player ~/Downloads/stfu.wav --sample-rate 48000 --channels 2
+[2026-08-07 10:10:36.956] [info] Playing /Users/ams/Downloads/stfu.
+wav                            
+^C
+ams@MacBook-Pro-von-Amsakan music-player % ./build/Release/main/mus
+ic_player ~/Downloads/stfu.wav --sample-rate 48000 --channels 1
+[2026-08-07 10:10:42.704] [info] Playing /Users/ams/Downloads/stfu.
+wav                            
+^C
+ams@MacBook-Pro-von-Amsakan music-player % ./build/Release/main/mus
+ic_player ~/Downloads/stfu.wav --sample-rate 41000 --channels 1
+[2026-08-07 10:10:59.618] [info] Playing /Users/ams/Downloads/stfu.
+wav                            
+^C
+ams@MacBook-Pro-von-Amsakan music-player % ./build/Release/main/mus
+ic_player ~/Downloads/stfu.wav --sample-rate 50000 --channels 1
+[2026-08-07 10:11:13.958] [info] Playing /Users/ams/Downloads/stfu.
+wav                            
+^C
+ams@MacBook-Pro-von-Amsakan music-player % ./build/Release/main/mus
+ic_player ~/Downloads/stfu.wav --sample-rate 100000 --channels 1 
+[2026-08-07 10:11:31.236] [info] Playing /Users/ams/Downloads/stfu.
+wav                            
+^C
+ams@MacBook-Pro-von-Amsakan music-player % git add .
+ams@MacBook-Pro-von-Amsakan music-player % git commit -m "Added cha
+nnels option"
+[main 0adc76e] Added channels option
+ 5 files changed, 18 insertions(+), 8 deletions(-)
+ams@MacBook-Pro-von-Amsakan music-player % git push
+Enumerating objects: 23, done.
+Counting objects: 100% (23/23), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (11/11), done.
+Writing objects: 100% (12/12), 1.28 KiB | 1.28 MiB/s, done.
+Total 12 (delta 6), reused 0 (delta 0), pack-reused 0
+To https://git.amsakan.de/anotherSimpleCoder/music-player.git
+   df15519..0adc76e  main -> main
+ams@MacBook-Pro-von-Amsakan music-player % #

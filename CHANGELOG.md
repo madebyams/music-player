@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 - `arg_parser` module for command-line argument parsing via [argparse](https://github.com/p-ranav/argparse).
 - `--sample-rate` option to override the playback sample rate (defaults to 44100 Hz).
+- `--channels` option to override the playback channel count (defaults to 2).
 - GitLab CI pipeline that builds the binary and publishes it as a release asset on tagged commits.
 - LICENSE (LGPL-2.1).
 

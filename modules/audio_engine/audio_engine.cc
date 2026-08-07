@@ -7,7 +7,6 @@
 #include <miniaudio.h>
 #include <spdlog/spdlog.h>
 
-constexpr uint8_t CHANNELS{2};
 
 void data_callback(
   ma_device* pDevice,
