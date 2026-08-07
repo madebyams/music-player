@@ -5,6 +5,9 @@ miniaudio/0.11.22
 argparse/3.2
 cpython/3.12.7
 
+[options]
+cpython/*:with_tkinter=False
+
 [generators]
 CMakeDeps
 CMakeToolchain

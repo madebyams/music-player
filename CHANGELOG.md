@@ -25,3 +25,4 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - `python_effect::run` passing the script path (with its `.py` extension) straight to `PyImport_Import`, which always failed since Python interpreted the extension as a submodule path; also silently swallowed the resulting import error instead of reporting it.
 - `PyObject_CallObject` being passed the raw `std::vector<float>` samples instead of a `PyObject*` argument tuple.
 - Python function return values were discarded; `process()`'s return value is now converted back into the sample buffer used for playback.
+- GitLab CI failing to install `cpython` on Linux: the recipe's default `with_tkinter=True` pulled in `tk`/`tcl`/`xorg`, and `xorg/system` requires X11 dev packages that Conan's package manager mode won't auto-install in CI. Disabled `with_tkinter` in `conanfile.txt`, since `python_effect` only needs the embeddable Python C API, not Tk.
