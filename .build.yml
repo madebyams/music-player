@@ -4,6 +4,7 @@ packages:
   - python3
   - python3-pip
   - python3-venv
+  - libnsl-dev
   - ca-certificates
 sources:
   - https://git.sr.ht/~itsams_wav/music-player
